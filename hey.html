@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>لعبة تخمين الرقم</title>
+  <style>
+    h1{
+      color: aliceblue;
+    }
+    body{
+      background-color: rgb(117, 116, 116);
+    }
+    button{
+      background-color: black;
+      color: aliceblue;
+    }
+    p{
+      color: aliceblue;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>لعبة تخمين الرقم</h1>
+
+  <p>قم بتخمين الرقم بين 1 و 100</p>
+
+  <input type="number" id="guess" />
+  <button onclick="checkGuess()">تحقق</button>
+  <p id="message"></p>
+
+  <script>
+    // توليد رقم عشوائي بين 1 و 100
+    var randomNumber = Math.floor(Math.random() * 100) + 1;
+
+    var guessInput = document.getElementById("guess");
+    var message = document.getElementById("message");
+
+    function checkGuess() {
+      var guess = parseInt(guessInput.value);
+
+      if (guess === randomNumber) {
+         message.textContent ="أحسنت! لقد حزرت الرقم الصحيح.";
+      } else if (guess < randomNumber) {
+        message.textContent = "حاول مرة أخرى. الرقم الذي تحاول تخمينه أكبر.";
+      } else {
+        message.textContent = "حاول مرة أخرى. الرقم الذي تحاول تخمينه أصغر.";
+      }
+    }
+  </script>
+</body>
+</html>
